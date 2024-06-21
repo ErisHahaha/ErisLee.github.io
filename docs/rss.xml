@@ -1,5 +1,21 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Eris Lee的个人博客</title><link>https://ErisHahaha.github.io/ErisLee.github.io</link><description>Email:ErisLee_lmy@outlook.com</description><copyright>Eris Lee的个人博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/113779604?v=4</url><title>avatar</title><link>https://ErisHahaha.github.io/ErisLee.github.io</link></image><lastBuildDate>Fri, 21 Jun 2024 11:36:39 +0000</lastBuildDate><managingEditor>Eris Lee的个人博客</managingEditor><ttl>60</ttl><webMaster>Eris Lee的个人博客</webMaster><item><title>算法与数据结构学习笔记</title><link>https://ErisHahaha.github.io/ErisLee.github.io/post/suan-fa-yu-shu-ju-jie-gou-xue-xi-bi-ji.html</link><description># 算法入门&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Eris Lee的个人博客</title><link>https://ErisHahaha.github.io/ErisLee.github.io</link><description>Email:ErisLee_lmy@outlook.com</description><copyright>Eris Lee的个人博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/113779604?v=4</url><title>avatar</title><link>https://ErisHahaha.github.io/ErisLee.github.io</link></image><lastBuildDate>Fri, 21 Jun 2024 14:24:43 +0000</lastBuildDate><managingEditor>Eris Lee的个人博客</managingEditor><ttl>60</ttl><webMaster>Eris Lee的个人博客</webMaster><item><title>Berry Phase与量子计算</title><link>https://ErisHahaha.github.io/ErisLee.github.io/post/Berry%20Phase-yu-liang-zi-ji-suan.html</link><description># 量子计算的基本原理&#13;
+&#13;
+## 量子比特（qubit）&#13;
+类似于传统计算机的比特（半导体电路的通断），量子计算机也会使用一些物理量来表示*量子比特*，比如电子的自旋（向上/向下），或者光的偏振（垂直/水平）&#13;
+使用$|0\rangle$表示量子 0,使用$|1\rangle$表示量子1&#13;
+但是量子bit具有叠加态，因此它可以处在二者的线性叠加态$\left|\psi\right\rangle=\alpha\left|0\right\rangle+\beta\left|1\right\rangle$，$\alpha,\beta \in \mathcal{Z}$&#13;
+&#13;
+又因为，归一化条件：$|\alpha\right|^2+|\beta\right|^2=1$&#13;
+那么可以写成：$|\psi\rangle=e^{i\gamma}(\cos\frac{\theta}{2}|0\rangle+e^{i\varphi}\sin\frac{\theta}{2}|1\rangle)$&#13;
+去掉没有的相位得到&#13;
+$$|\psi\rangle=\cos\frac{\theta}{2}|0\rangle+e^{i\varphi}\sin\frac{\theta}{2}|1\rangle $$&#13;
+因此一个量子bit由两个自由度，用一个球（bloch球）&#13;
+&#13;
+相比于一般计算机的0个自由度，这意味着单从这一点来看，一个量子bit可以存储无穷多的信息，但我们的测量会使它但所在0，1两个点上，这意味这我们对信息的读取能力取决于我们有的量子bit的数量&#13;
+&#13;
+## 多量子bit&#13;
+假设我们有两个量子比特。</description><guid isPermaLink="true">https://ErisHahaha.github.io/ErisLee.github.io/post/Berry%20Phase-yu-liang-zi-ji-suan.html</guid><pubDate>Fri, 21 Jun 2024 14:22:20 +0000</pubDate></item><item><title>算法与数据结构学习笔记</title><link>https://ErisHahaha.github.io/ErisLee.github.io/post/suan-fa-yu-shu-ju-jie-gou-xue-xi-bi-ji.html</link><description># 算法入门&#13;
 ## 数据结构&#13;
 数据结构的设计是权衡的&#13;
 - 链表相较于数组，数据添加and删除更快，but数据访问更慢&#13;
