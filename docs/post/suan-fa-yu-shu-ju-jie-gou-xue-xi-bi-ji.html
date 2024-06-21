@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="//cdn.staticfile.net/Primer/21.0.7/primer.css" rel="stylesheet" />
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/113779604?v=4"><script>
+        let theme = localStorage.getItem("meek_theme") || "light";
+        document.documentElement.setAttribute("data-color-mode", theme);
+    </script>
+<meta name="description" content="# 算法入门
+## 数据结构
+数据结构的设计是权衡的
+- 链表相较于数组，数据添加and删除更快，but数据访问更慢
+- 图相较于链表：逻辑信息更丰富但内存占用较大
+# 复杂度分析
+算法评估包含两个维度：时间和空间，用两种方法评估：实际测试和理论估算
+## 渐进复杂度评估
+用**复杂度分析**（asymptptic complexity analysis)来理论计算所需时间和空间资源随数据大学增大的增长趋势。">
+<meta property="og:title" content="算法与数据结构学习笔记">
+<meta property="og:description" content="# 算法入门
+## 数据结构
+数据结构的设计是权衡的
+- 链表相较于数组，数据添加and删除更快，but数据访问更慢
+- 图相较于链表：逻辑信息更丰富但内存占用较大
+# 复杂度分析
+算法评估包含两个维度：时间和空间，用两种方法评估：实际测试和理论估算
+## 渐进复杂度评估
+用**复杂度分析**（asymptptic complexity analysis)来理论计算所需时间和空间资源随数据大学增大的增长趋势。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ErisHahaha.github.io/ErisLee.github.io/post/suan-fa-yu-shu-ju-jie-gou-xue-xi-bi-ji.html">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/113779604?v=4">
+<title>算法与数据结构学习笔记</title>
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">算法与数据结构学习笔记</h1>
+<div class="title-right">
+    <a href="https://ErisHahaha.github.io/ErisLee.github.io" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/ErisHahaha/ErisLee.github.io/issues/2" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><h1>算法入门</h1>
+<h2>数据结构</h2>
+<p>数据结构的设计是权衡的</p>
+<ul>
+<li>链表相较于数组，数据添加and删除更快，but数据访问更慢</li>
+<li>图相较于链表：逻辑信息更丰富但内存占用较大</li>
+</ul>
+<h1>复杂度分析</h1>
+<p>算法评估包含两个维度：时间和空间，用两种方法评估：实际测试和理论估算</p>
+<h2>渐进复杂度评估</h2>
+<p>用<strong>复杂度分析</strong>（asymptptic complexity analysis)来理论计算所需时间和空间资源随数据大学增大的增长趋势。</p>
+<ul>
+<li><em>时间和空间资源</em> 分别对应<em>时间复杂度</em>和<em>空间复杂度</em></li>
+<li>复杂度反映了算法运行效率与输入数据体谅之间的关系</li>
+<li>复杂度分析关注的不是运行时间or占用空间的具体值，而是增长的快慢<br>
+其有两个优势</li>
+<li>独立于测试环境</li>
+<li>体现不同数据下算法效率</li>
+</ul>
+<h2>迭代</h2>
+<p><strong>迭代</strong>表示重复运行某段代码重复运行直到初始条件不再满足<br>
+实例：</p>
+<ol>
+<li>for循环</li>
+<li>while循环</li>
+<li>嵌套循环<br>
+while循环的初始化和更新条件变量的步骤独立于循环结构之外，因此它比for循环的自由度更高，但for循环的代码更加紧凑。</li>
+</ol>
+<h2>递归（recursion）</h2>
+<p>递归含两个阶段</p>
+<ol>
+<li>程序不断深入调用自己</li>
+<li>触发终止条件后，程序从深处开始返回<br>
+递归代码主要含有三个要素</li>
+<li>终止条件：何时由递转归</li>
+<li>递归调用：对应“递”，函数调用自身</li>
+<li>返回结果：对应“归”，将当前递归层级的结果返回至上一层<br>
+eg.(利用递归求1+2+3....+n的值)</li>
+</ol>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/ErisHahaha/ErisLee.github.io/assets/113779604/137e3da8-b149-40c2-9935-ea304e69562e"><img width="560" alt="Pasted image 20230914230316" src="https://github.com/ErisHahaha/ErisLee.github.io/assets/113779604/137e3da8-b149-40c2-9935-ea304e69562e" style="max-width: 100%;"></a></p>
+<h3>调用栈</h3>
+<p>递归函数每次调用自身都需要额外的空间存储,并且调用函数也需要时间因此其时间,空间效率都不如循环。</p>
+<h3>尾递归</h3>
+<p>如果函数在最后一步才被递归调用，则函数会被解释器优化，使其在空间效率与迭代相当，这被称为尾递归（tail recursion)<br>
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/ErisHahaha/ErisLee.github.io/assets/113779604/f3b3d503-1e0a-4720-a40c-3ed34d35c3cd"><img width="537" alt="Pasted image 20230918185036" src="https://github.com/ErisHahaha/ErisLee.github.io/assets/113779604/f3b3d503-1e0a-4720-a40c-3ed34d35c3cd" style="max-width: 100%;"></a></p>
+<h3>递归树</h3>
+<p>分治时有优势<br>
+eg：求斐波那契数列的第n项</p>
+<ul>
+<li>f（1） = 0 ，f（2） = 1</li>
+<li>f （n）= f(n-1)+f(n-2)<br>
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/ErisHahaha/ErisLee.github.io/assets/113779604/c6f73b1f-b888-4085-a1cb-18890fae7d58"><img src="https://github.com/ErisHahaha/ErisLee.github.io/assets/113779604/c6f73b1f-b888-4085-a1cb-18890fae7d58" alt="image" style="max-width: 100%;"></a></li>
+</ul>
+<h2>时间复杂度</h2>
+<p>时间复杂度分析统计的不是运行时间，而是算法运行时间随数据量变大时的增长趋势<br>
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/ErisHahaha/ErisLee.github.io/assets/113779604/fa4dc28e-ecca-4395-b61d-db82fb349f30"><img src="https://github.com/ErisHahaha/ErisLee.github.io/assets/113779604/fa4dc28e-ecca-4395-b61d-db82fb349f30" alt="image" style="max-width: 100%;"></a><br>
+时间复杂度的局限性:</p>
+<ul>
+<li>时间复杂度不能分辨相同复杂度的算法的运行时间</li>
+<li>当数据大小n较小是，时间复杂度可能并不能体现算法效率</li>
+</ul>
+<h3>函数渐近上界</h3>
+<p>对下面的代码</p>
+<pre class="notranslate"><code class="notranslate">def algorithm(n: int):
+    a = 1      # +1
+    a = a + 1  # +1
+    a = a * 2  # +1
+    # 循环 n 次
+    for i in range(n):  # +1
+        print(0)        # +1
+
+</code></pre>
+<p>其操作数量是：<br>
+$$T(n) = 3 + 2n$$<br>
+为一次函数，时间复杂度为线性的，记为O(n)，这个符号成为<em>big-O notation</em>,表示T（n）的渐近上界。</p>
+<blockquote>
+<p>函数渐近上界：若存在正实数c和实数n，使得对于所有x&gt;n，均有$T(n)&lt;=cf(n)$，则可以认为f(n)给出了T(n)的一个渐近上界</p>
+</blockquote>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/ErisHahaha/ErisLee.github.io/assets/113779604/4ad6afc7-63cc-4778-aed5-cbc17daa1557"><img src="https://github.com/ErisHahaha/ErisLee.github.io/assets/113779604/4ad6afc7-63cc-4778-aed5-cbc17daa1557" alt="image" style="max-width: 100%;"></a></p>
+<h3>推算方法</h3>
+<ol>
+<li>省略T（n）常数项和系数</li>
+<li>循环嵌套用乘法</li>
+<li>只取最高阶<br>
+\begin{aligned}<br>
+$$O(1) &amp;lt; O(\log n) &amp;lt; O(n) &amp;lt; O(n \log n) &amp;lt; O(n^2) &amp;lt; O(2^n) &amp;lt; O(n!)$$
+</li>
+</ol>
+<h4>对数阶</h4>
+<p>最不常见，eg每轮变为原来一半</p>
+<pre class="notranslate"><code class="notranslate">def logarithmic(n: float) -&gt; int:
+    """对数阶（循环实现）"""
+    count = 0
+    while n &gt; 1:
+        n = n / 2
+        count += 1
+    return count
+</code></pre>
+<p>由于底数多少不重要，因此我们通常直接记为O(log n)</p>
+<h4>线性对数阶O(n log n)</h4>
+<p>常出现于嵌套循环中，两层循环分别为O(log n)和O(n)</p>
+<pre class="notranslate"><code class="notranslate">def linear_log_recur(n: float) -&gt; int:
+    """线性对数阶"""
+    if n &lt;= 1:
+        return 1
+    count: int = linear_log_recur(n // 2) + linear_log_recur(n // 2)
+    for _ in range(n):
+        count += 1
+    return count
+</code></pre>
+<h3>最差、最佳、平均时间复杂度</h3>
+<p>算法的时间效率往往与输入数据的分布有关<br>
+eg:从一个长n的数组<code class="notranslate">nums</code>中找到1</p>
+<pre class="notranslate"><code class="notranslate">def random_numbers(n: int) -&gt; list[int]:
+    """生成一个数组，元素为: 1, 2, ..., n ，顺序被打乱"""
+    # 生成数组 nums =: 1, 2, 3, ..., n
+    nums = [i for i in range(1, n + 1)]
+    # 随机打乱数组元素
+    random.shuffle(nums)
+    return nums
+
+def find_one(nums: list[int]) -&gt; int:
+    """查找数组 nums 中数字 1 所在索引"""
+    for i in range(len(nums)):
+        # 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
+        # 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
+        if nums[i] == 1:
+            return i
+    return -1
+</code></pre>
+<p>可得到最佳时间复杂度（Ω）和<strong>最差时间复杂度</strong>（常用的时间复杂度)，最差时间复杂度更为实用，因为它给了一个效率安全值。<br>
+平均复杂度代表数据随机输入时的运行效率，对上面算法$\Theta(n / 2) = \Theta(n)$<br>
+但是不常用。</p>
+<h2>空间复杂度</h2>
+<h3>算法相关的空间</h3>
+<ul>
+<li>输入空间</li>
+<li>暂存空间
+<ul>
+<li><strong>暂存数据</strong></li>
+<li><strong>栈帧空间</strong>：用于保存调用函数的上下文数据。系统在每次调用函数时都会在栈顶部创建一个栈帧，函数返回后，栈帧空间会被释放</li>
+<li>指令空间：用于保存编译后的程序指令，在实际统计中通常忽略不计、</li>
+</ul>
+</li>
+<li><strong>输出空间</strong><br>
+通常只统计<strong>暂存数据、栈帧空间和输出数据</strong></li>
+</ul>
+<pre class="notranslate"><code class="notranslate">class Node:
+    """类"""
+    def __init__(self, x: int):
+        self.val: int = x              # 节点值
+        self.next: Node | None = None  # 指向下一节点的引用
+
+def function() -&gt; int:
+    """函数"""
+    # 执行某些操作...
+    return 0
+
+def algorithm(n) -&gt; int:  # 输入数据
+    A = 0                 # 暂存数据（常量，一般用大写字母表示）
+    b = 0                 # 暂存数据（变量）
+    node = Node(0)        # 暂存数据（对象）
+    c = function()        # 栈帧空间（调用函数）
+    return A + b + c      # 输出数据
+
+</code></pre>
+<h3>推算方法</h3>
+<p>推算方法与空间复杂度大致相同。<br>
+但与时间复杂度不同，我们通常只关注<strong>最差空间复杂度</strong>，因为必须保障空间预留才能运行。<br>
+最差是指</p>
+<ol>
+<li>最差输入数据</li>
+<li>算法运行过程重点峰值内存为准</li>
+</ol>
+<h3>常见类型</h3>
+<p>O(1)&lt;O(log(n))&lt;O(n)&lt;O(n^2)&lt;O(2^n)</p>
+<h1>数据结构</h1>
+<h2>数据分类</h2>
+<p>常见的数据结构包括数组、链表、栈、队列、哈希表、树、堆、图，它们可以从“逻辑结构”和“物理结构”两个维度进行分类。</p>
+<h3>逻辑结构：线性与非线性</h3>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/ErisHahaha/ErisLee.github.io/assets/113779604/021b46b2-9f59-42e8-ba4d-ce59f6f455e8"><img src="https://github.com/ErisHahaha/ErisLee.github.io/assets/113779604/021b46b2-9f59-42e8-ba4d-ce59f6f455e8" alt="image" style="max-width: 100%;"></a><br>
+如图逻辑结构可分为<em>线性</em>和<em>非线性</em></p>
+<ul>
+<li>线性数据结构：数组、链表、栈、队列、哈希表</li>
+<li>非线性数据结构：树、堆、图、哈希表</li>
+</ul></div>
+<div style="font-size:small;margin-top:8px;float:right;"></div>
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+</div>
+    <div id="footer">Copyright © <span id="year"></span><a href="https://ErisHahaha.github.io/ErisLee.github.io"> Eris Lee的个人博客 </a>
+<p>
+<span id="runday"></span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a>
+</p>
+
+<script>
+if(""!=""){
+    var now=new Date();
+    var startSite=new Date("");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("year").innerHTML=now.getFullYear();
+    if(""!=""){document.getElementById("runday").innerHTML=" • "+"网站运行"+diffDay+"天"+" • ";}
+    else{document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";}
+}
+</script>
+</div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z'};
+var utterancesLoad=0;
+
+let themeSettings={
+    "dark": ["dark","moon","#00f0ff","dark-blue"],
+    "light": ["light","sun","#ff5000","github-light"],
+    "auto": ["auto","sync","","preferred-color-scheme"]
+};
+function changeTheme(mode, icon, color, utheme){
+    document.documentElement.setAttribute("data-color-mode",mode);
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList[icon]);
+    document.getElementById("themeSwitch").parentNode.style.color=color;
+    if(utterancesLoad==1){utterancesTheme(utheme);}
+}
+function modeSwitch(){
+    let currentMode=document.documentElement.getAttribute('data-color-mode');
+    let newMode = currentMode === "light" ? "dark" : currentMode === "dark" ? "auto" : "light";
+    localStorage.setItem("meek_theme", newMode);
+    if(themeSettings[newMode]){
+        changeTheme(...themeSettings[newMode]);
+    }
+}
+function utterancesTheme(theme){
+    const message={type:'set-theme',theme: theme};
+    const iframe=document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message,'https://utteranc.es');
+}
+if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n\n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","ErisHahaha/ErisLee.github.io");
+    script.setAttribute("issue-term","title");
+    
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else if(localStorage.getItem("meek_theme")=="light") {script.setAttribute("theme","github-light");}
+    else{script.setAttribute("theme","preferred-color-scheme");}
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+</script>
+<script>MathJax = {tex: {inlineMath: [["$", "$"]]}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</html>
